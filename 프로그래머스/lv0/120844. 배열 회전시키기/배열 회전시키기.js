@@ -1,12 +1,10 @@
 function solution(numbers, direction) {
     var answer = numbers;
     
-    if( direction == "right"){
-        const r = answer.pop()
-        answer.unshift(r)
-    } else if (direction == "left"){
-        const l = answer.shift()
-        answer.push(l)
+    if( direction == "right") {
+        answer.unshift(answer.pop())
+    } else if (direction == "left") {
+        answer.push(answer.shift())
     }
     
     return answer;
