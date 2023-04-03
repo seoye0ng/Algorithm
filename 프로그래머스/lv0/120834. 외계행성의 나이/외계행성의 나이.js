@@ -1,7 +1,6 @@
 function solution(age) {
     let answer = '';
-    let str = age + '';
-    let strArr = str.split('')
+    let strArr = (age + '').split('')
     
     for(let i of strArr) {
      answer += String.fromCharCode(parseInt(i) + 97);
