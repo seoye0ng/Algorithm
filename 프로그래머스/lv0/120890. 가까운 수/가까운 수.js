@@ -1,12 +1,8 @@
 function solution(array, n) {
-    let arrDiffer = array.sort((a,b) => a - b).map(i => Math.abs(n - i));
-    let minNum =  Math.min(...arrDiffer);
-    let answerIndex = arrDiffer.indexOf(minNum)
-    // let answerIndex = []
-//     arrDiffer.map((item, index) => {
-//         if(item === minNum) answerIndex.push(array[arrDiffer.indexOf(minNum)])
-//     })
-    
-//     answerIndex.sort((a,b) => a - b)
-    return array[answerIndex];
+    const arr = array.sort((a,b) => a - b)
+    const arrDiffer = arr.map(i => Math.abs(n - i));
+    const minNum =  Math.min(...arrDiffer);
+    const answerIndex = arrDiffer.indexOf(minNum);
+  
+    return arr[answerIndex];
 }
