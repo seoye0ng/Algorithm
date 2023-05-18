@@ -1,8 +1,6 @@
 function solution(score) {
     let answer = [];
-    let average = []
-    
-    score.map(item => average.push((item[0]+item[1]) / 2))
+    let average = score.map(item => (item[0]+item[1]) / 2)
     
     const arr = [...average].sort((a, b) => (b - a));
     // 숫자가 큰 순서대로 정렬
