@@ -16,3 +16,16 @@ function solution(strings, n) {
     // 정렬된 결과에서 원래 문자열만 추출하여 반환
     return stringArr.map((arr) => arr[0]);
 }
+
+
+/* localeCompare 사용
+
+** "a"는 "c" 전에 위치하므로 음수 값을 반환
+** "a".localeCompare("c"); // -2 혹은 -1 (또는 다른 음수 값)
+
+** 알파벳 순으로 단어 "check"는 "against"보다 뒤에 위치하므로 양수 값을 반환
+** "check".localeCompare("against"); // 2 혹은 1 (또는 다른 양수 값)
+
+** "a"와 "a"는 서로 동등하므로 중립 값 0을 반환
+** "a".localeCompare("a"); // 0
+*/
