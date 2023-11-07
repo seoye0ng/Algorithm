@@ -5,7 +5,7 @@ function solution(k, score) {
     for(let i = 0; i < score.length; i++) {
         let minScore = Math.min(...highLevelScores);
         
-        if(highLevelScores.length < k) {
+        if (highLevelScores.length < k) {
             highLevelScores.push(score[i]);
         }else {
             if (minScore < score[i]) {
