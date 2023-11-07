@@ -1,20 +1,19 @@
 function solution(name, yearning, photo) {
-    const answer = [];
     const people = {};
-    
-    for(let i = 0; i < name.length; i++){
-        people[name[i]] = yearning[i]
+
+    for (let i = 0; i < name.length; i++) {
+        people[name[i]] = yearning[i];
     }
-    
-    photo.forEach(allPerson => {
+
+    const answer = photo.map(allPerson => {
         let memory = 0;
-        
-        Object.entries(people).forEach(([key, value]) => {
-            if(allPerson.includes(key)) memory += value;
-        })
-        
-        answer.push(memory);
-    })
-    
+
+        for (const key of Object.keys(people)) {
+            if (allPerson.includes(key)) memory += people[key];
+        }
+
+        return memory;
+    });
+
     return answer;
 }
