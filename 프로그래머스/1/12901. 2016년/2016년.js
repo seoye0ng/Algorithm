@@ -1,7 +1,13 @@
 function solution(a, b) {
-    const daysOfWeek = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
-
-    const date = new Date(2016, a - 1, b)
+    const daysOfWeek = ['FRI','SAT','SUN','MON','TUE','WED','THU'];
+    const month = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let days = b;
     
-    return daysOfWeek[date.getDay()];
+    for(let i = 0; i < a - 1; i++){
+        days += month[i];
+    } 
+    
+    const day = (days % daysOfWeek.length) === 0 ? 6 : days % daysOfWeek.length - 1
+    
+    return daysOfWeek[day];
 }
