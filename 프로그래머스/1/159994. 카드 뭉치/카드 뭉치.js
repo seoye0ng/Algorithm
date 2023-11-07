@@ -1,11 +1,9 @@
 function solution(cards1, cards2, goal) {
-    let answer = 'Yes';
-    
-    for(let i = 0; i < goal.length; i++){
+    for(const i in goal){
         if(cards1[0] === goal[i]) cards1.shift();
         else if(cards2[0] === goal[i]) cards2.shift();
-        else answer = 'No'
+        else return 'No';
     }
     
-    return answer;
+    return 'Yes';
 }
