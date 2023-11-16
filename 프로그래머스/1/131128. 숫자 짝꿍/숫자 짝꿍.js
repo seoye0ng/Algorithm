@@ -2,13 +2,10 @@ function solution(X, Y) {
     const setX = [...new Set(X.split(''))];
     const setY = [...new Set(Y.split(''))];
     const duplicateNum = setX.filter(num => setY.includes(num))
-    let answer = ''
     
-    if (duplicateNum.length === 0) {
-        answer = '-1'
-    } else if (duplicateNum.length === 1 && duplicateNum[0] === '0') {
-        answer = '0'
-    } else {
+    if (duplicateNum.length === 0) return '-1'
+    else if (duplicateNum.length === 1 && duplicateNum[0] === '0') return '0'
+    else {
         const resultX = {}
         const resultY = {}
         let matchStr = ''
@@ -30,7 +27,7 @@ function solution(X, Y) {
             else if(resultY[key] >= value) matchStr += key.repeat(value)
             else if(resultY[key] < value) matchStr += key.repeat(resultY[key])
         })
-        answer = matchStr.split('').sort((a,b) => b - a).join('')
+        
+        return matchStr.split('').sort((a,b) => b - a).join('')
     }
-    return answer;
 }
