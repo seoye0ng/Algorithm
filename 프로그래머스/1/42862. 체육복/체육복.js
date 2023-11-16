@@ -5,15 +5,15 @@ function solution(n, lost, reserve) {
 
     let students = (n - lost.length) + (lost.length - newLost.length);
     
-    for (let i = 0; i < newLost.length; i++) {
-        if (newReserve.includes(newLost[i] - 1)) {
+    newLost.forEach(lostNum => {
+        if (newReserve.includes(lostNum - 1)) {
             students += 1;
-            newReserve.splice(newReserve.indexOf(newLost[i] - 1), 1);
-        } else if (newReserve.includes(newLost[i] + 1)) {
+            newReserve.splice(newReserve.indexOf(lostNum - 1), 1);
+        } else if (newReserve.includes(lostNum + 1)) {
             students += 1;
-            newReserve.splice(newReserve.indexOf(newLost[i] + 1), 1);  
+            newReserve.splice(newReserve.indexOf(lostNum + 1), 1);  
         }
-    }
-
+    })
+    
     return students;
 }
