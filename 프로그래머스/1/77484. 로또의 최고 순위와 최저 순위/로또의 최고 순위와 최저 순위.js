@@ -11,10 +11,10 @@ function solution(lottos, win_nums) {
     let matchNum = 0;
     let emptyNum = 0;
     
-    for(const i in lottos) {
-        if (win_nums.includes(lottos[i])) matchNum++;
-        else if (lottos[i] === 0) emptyNum++;
-    }
+    lottos.forEach(num => {
+        if (win_nums.includes(num)) matchNum++;
+        else if (num === 0) emptyNum++;
+    })
     
     return [result[matchNum + emptyNum], result[matchNum]];
 }
