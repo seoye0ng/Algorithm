@@ -1,23 +1,18 @@
 function solution(s) {
     let answer = 0;
-    let firstLetter = s[0];
-    let otherLetter = '';
+    let firstLetter = 0;
+    let count = 0;
     
-    for(let i = 1; i <= s.length; i++) {
-        if(i === s.length && firstLetter.length !== otherLetter.length) {
-            answer += 1;
-        } 
-        if (firstLetter.length === otherLetter.length) {
-                answer += 1;
-                firstLetter = s[i];
-                otherLetter = '';
+    for(let i = 0; i < s.length; i++){
+        if(count === 0){
+            answer++;
+            firstLetter = s[i]
+            count++
         } else {
-            if(firstLetter[0] === s[i]) {
-                firstLetter += s[i];
-            } else {
-                otherLetter += s[i];
-            }
+            if(s[i] !== firstLetter) count--;
+            else count++;
         }
     }
+    
     return answer;
 }
