@@ -3,11 +3,9 @@ function solution(s) {
     let sArr = s.split('');
     
     while(sArr.length !== 1){
-//         0을 개수를 저장한다.
-        const zeroCount = sArr.filter(num => num === '0').length;
-        answer[1] += zeroCount;
-//         1의 길이를 2진 변환한다.
-        sArr = (sArr.length - zeroCount).toString(2).split('');
+        const onesLength = sArr.filter(num => num === '1').length;
+        answer[1] += sArr.length - onesLength;
+        sArr = onesLength.toString(2).split('');
         answer[0] += 1;
     }
     
