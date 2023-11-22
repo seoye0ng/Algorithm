@@ -24,8 +24,7 @@ function solution(numbers, hand) {
         } else {
             const Ldistance = Math.abs(position[num][0] - position[currentHand['L']][0]) + Math.abs(position[num][1] - position[currentHand['L']][1]);
             const Rdistance = Math.abs(position[num][0] - position[currentHand['R']][0]) + Math.abs(position[num][1] - position[currentHand['R']][1]);
-            console.log('Ldistance',Ldistance)
-            console.log('Rdistance',Rdistance)
+    
             if(Ldistance < Rdistance || (Ldistance === Rdistance && hand === 'left')) {
                 answer += 'L';
                 currentHand['L'] = num;
