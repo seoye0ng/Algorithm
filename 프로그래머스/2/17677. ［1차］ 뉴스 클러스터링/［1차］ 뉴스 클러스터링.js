@@ -4,6 +4,8 @@ function solution(str1, str2) {
     const str1Map = splitStr(str1);
     const str2Map = splitStr(str2);
     
+    if (str1Map.size === 0 && str2Map.size === 0) return 65536;
+    
     str1Map.forEach((value, key) => {
         if (str2Map.has(key)) {
             intersection += Math.min(value, str2Map.get(key));
@@ -17,7 +19,6 @@ function solution(str1, str2) {
         if (!str1Map.has(key)) union += value;
     });
     
-    if (union === 0) return 65536;
     return Math.floor((intersection / union) * 65536);
 }
 
