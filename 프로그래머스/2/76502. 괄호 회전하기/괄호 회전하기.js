@@ -15,9 +15,7 @@ function solution(s) {
                 if (j === 0 || stack.length === 0 || brackets[bracket] !== str[j]) {
                     answer--;
                     break;
-                } else {
-                    stack.pop();
-                }
+                } else stack.pop();
             }
             
             if (j === str.length - 1 && stack.length !== 0) answer--;
