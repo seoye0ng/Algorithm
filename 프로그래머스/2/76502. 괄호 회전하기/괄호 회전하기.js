@@ -1,31 +1,27 @@
 function solution(s) {
     let answer = s.length;
-    let stack = [];
-    const openBrackets = ['[', '(', '{'];
+    const brackets = {'[':']', '(':')', '{':'}'};
     const str = s.split('');
 
-    for (let i = str.length - 1; i >= 0; i--) {
+    for (let i = 0; i < str.length; i++) {
+        const stack = [];
         const idx = str.pop();
         str.unshift(idx);
 
         for (let j = 0; j < str.length; j++) {
-            if (openBrackets.includes(str[j])) {
-                stack.push(str[j]);
-            } else {
-                if (j === 0 || stack.length === 0) {
+            if (brackets.hasOwnProperty(str[j])) stack.push(str[j]);
+            else {
+                const bracket = stack[stack.length - 1];
+                if (j === 0 || stack.length === 0 || brackets[bracket] !== str[j]) {
                     answer--;
                     break;
-                } else if (stack[stack.length - 1] === '(' && str[j] === ')') {
-                    stack.pop();
-                } else if (stack[stack.length - 1] === '[' && str[j] === ']') {
-                    stack.pop();
-                } else if (stack[stack.length - 1] === '{' && str[j] === '}') {
+                } else {
                     stack.pop();
                 }
             }
+            
+            if (j === str.length - 1 && stack.length !== 0) answer--;
         }
-        if (stack.length !== 0) answer--;
-        stack = [];
     }
 
     return answer;
