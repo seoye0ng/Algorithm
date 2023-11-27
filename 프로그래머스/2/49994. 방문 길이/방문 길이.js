@@ -25,7 +25,6 @@ function solution(dirs) {
         visited.add(newPath);
         visited.add(reversePath);
     }
-    console.log(visited)
 
     return visited.size / 2; // 중복된 좌표 쌍의 반을 반환
 }
