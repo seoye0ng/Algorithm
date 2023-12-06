@@ -3,8 +3,9 @@ function solution(brown, yellow) {
     const total = brown + yellow;
      
     for(let i = 3;  i <= total / 2; i++) {
-        if(total % i === 0 && total / i >= i) {
-            if((total / i - 2) * (i - 2) === yellow) answer = [total / i, i];
+        const row = total / i;
+        if(total % i === 0 && row >= i) {
+            if((row - 2) * (i - 2) === yellow) answer.push(row, i);
         }
     }
     
