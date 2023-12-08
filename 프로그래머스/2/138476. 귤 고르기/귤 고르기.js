@@ -12,10 +12,8 @@ function solution(k, tangerine) {
 
     for(let [key, value] of sortedObj) {
         if(temp >= k) break;
-        else {
-            temp += value;
-            answer++
-        };
+        temp += value;
+        answer++;
     }
     
     return answer;
