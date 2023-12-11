@@ -2,13 +2,11 @@ function solution(want, number, discount) {
     let answer = 0;
     const wantObj = {};
     
-    for(let i = 0; i < want.length; i++) {
-        wantObj[want[i]] = number[i]
-    }
+    want.forEach((food, i) => wantObj[want[i]] = number[i]);
     
     for(let i = 0; i < discount.length - 9; i++) {
         const temp = {...wantObj};
-        const slice = discount.slice(i, i + 10)
+        const slice = discount.slice(i, i + 10);
         
         for(let j = 0; j < slice.length; j++) {
             if(temp[slice[j]] && temp[slice[j]] > 0) {
@@ -17,9 +15,7 @@ function solution(want, number, discount) {
                     const check = Object.values(temp).every(value => value === 0);
                     if(check) answer++;
                 }
-            } else {
-                break;
-            }
+            } else break;
         }
     }
     
