@@ -6,16 +6,15 @@ function solution(progresses, speeds) {
     let temp = 1;
     
     for(let i = 1; i < progresses.length; i++) {
-        if(maxDay >= days[i]) {
-            temp++;
-        } else {
+        if(maxDay >= days[i]) temp++;
+        else {
             maxDay = days[i];
             answer.push(temp);
             temp = 1;
         }
     }
     
-    answer.push(temp)
+    answer.push(temp);
     
     return answer;
 }
