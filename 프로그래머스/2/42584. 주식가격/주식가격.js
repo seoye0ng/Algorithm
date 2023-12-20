@@ -6,7 +6,6 @@ function solution(prices) {
         for(let j = i; j < prices.length; j++) {
             if(stack.length === 0) {
                 stack = [j, prices[j]];
-                // continue;
             } else {
                 if(stack[1] > prices[j]) {
                     answer.push(j - stack[0])
