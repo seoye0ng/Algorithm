@@ -1,5 +1,5 @@
 function solution(operations) {
-    let answer = [];
+    const answer = [];
     const queue = [];
     
     for(let i = 0; i < operations.length; i++) {
@@ -9,12 +9,11 @@ function solution(operations) {
         if(command === 'I') {
             queue.push(num);
         } else if(command === 'D' && queue.length > 0){
-            if(num === -1) {
-                queue.sort((a, b) => b - a);
-            } else if(num === 1) {
-                queue.sort((a, b) => a - b);
+            if(num === 1) {
+                queue.splice(queue.indexOf(Math.max(...queue)), 1);
+            } else if(num === -1) {
+                queue.splice(queue.indexOf(Math.min(...queue)), 1);
             }
-            queue.pop();
         }
     }
     
