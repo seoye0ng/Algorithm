@@ -1,5 +1,4 @@
 function solution(operations) {
-    const answer = [];
     const queue = [];
     
     for(let i = 0; i < operations.length; i++) {
