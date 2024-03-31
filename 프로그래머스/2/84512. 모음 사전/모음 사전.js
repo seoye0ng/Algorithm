@@ -6,7 +6,7 @@ function solution(word) {
 
     for (let i = 0; i < word.length; i++) {
         answer += vowels.indexOf(word[i]) * per + 1;
-        per = (per - 1) / 5; // 다음 자리수로 넘어갈 때, 증가하는 수 조정
+        per = (per - 1) / vowels.length; // 다음 자리수로 넘어갈 때, 증가하는 수 조정
     }
 
     return answer;
