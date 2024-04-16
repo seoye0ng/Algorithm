@@ -17,12 +17,12 @@ function solution(begin, target, words) {
     queue.push([begin, 0]);
 
     while (queue.length > 0) {
-        const [currentWord, depth] = queue.shift();
-        if (currentWord === target) return depth;
+        const [currentWord, count] = queue.shift();
+        if (currentWord === target) return count;
         for (const word of words) {
             if (!visited.has(word) && canConvert(currentWord, word)) {
                 visited.add(word);
-                queue.push([word, depth + 1]);
+                queue.push([word, count + 1]);
             }
         }
     }
