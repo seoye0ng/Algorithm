@@ -12,9 +12,7 @@ function solution(land) {
         for (let j = 0; j < 4; j++) {
             let max = 0;
             for (let k = 0; k < 4; k++) {
-                if (j !== k) {
-                    max = Math.max(max, dp[i - 1][k]);
-                }
+                if (j !== k) max = Math.max(max, dp[i - 1][k]);
             }
             dp[i][j] = max + land[i][j];
         }
