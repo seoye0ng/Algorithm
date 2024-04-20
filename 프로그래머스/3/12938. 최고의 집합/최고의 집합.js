@@ -15,9 +15,9 @@ function solution(n, s) {
     for (let i = 0; i < n; i++) {
         if (i < n - remainder) {
             answer.push(quotient);
-        } else {
-            answer.push(quotient + 1);
+            continue;
         }
+        answer.push(quotient + 1);
     }
 
     return answer;
