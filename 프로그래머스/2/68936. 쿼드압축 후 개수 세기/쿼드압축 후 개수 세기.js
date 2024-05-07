@@ -11,12 +11,15 @@ function compress(arr, x, y, size, result) {
         return;
     }
 
-    const newSize = size / 2; // 영역 크기를 반으로 줄임
+    const newSize = size >> 1; // 비트 연산을 활용하여 크기를 반으로 줄임
+    const halfSize = newSize + x; // 반으로 줄인 크기의 중간 지점
+    const nextY = y + newSize; // 다음 영역의 시작 y 좌표
+    
     // 4분면으로 나누어 재귀적으로 압축 시도
     compress(arr, x, y, newSize, result);
-    compress(arr, x, y + newSize, newSize, result);
-    compress(arr, x + newSize, y, newSize, result);
-    compress(arr, x + newSize, y + newSize, newSize, result);
+    compress(arr, x, nextY, newSize, result);
+    compress(arr, halfSize, y, newSize, result);
+    compress(arr, halfSize, nextY, newSize, result);
 }
 
 function checkUniform(arr, x, y, size) {
