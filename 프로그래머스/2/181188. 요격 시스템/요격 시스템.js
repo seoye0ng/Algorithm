@@ -1,5 +1,5 @@
 function solution(targets) {
-    // 구간들을 끝점 기준으로 정렬합니다.
+    // 구간들을 끝점 기준으로 정렬
     targets.sort((a, b) => a[1] - b[1]);
 
     let intercepts = 0;
